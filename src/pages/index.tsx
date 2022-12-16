@@ -1,7 +1,10 @@
 import { useLayoutEffect, useState } from 'react';
+import { Shuffle } from 'phosphor-react';
 import styles from '../styles/Home.module.scss';
 
 import { Text } from '../components/Text/Text';
+import { Button } from '../components/Button/Button';
+import { NavTabs } from '../components/NavTabs/NavTabs';
 
 export default function Home() {
   const [hex, setHex] = useState<string>('');
@@ -27,13 +30,14 @@ export default function Home() {
 
   return (
     <div id="color" className={styles.wrapper}>
+
+      <NavTabs>
+        <Button onClick={generateColor}>
+          <Shuffle size={24} />
+        </Button>
+      </NavTabs>
+
       <Text message={hex} />
-      {/* <button
-        className={styles.roll}
-        onClick={generateColor}
-      >
-        Roll
-      </button> */}
     </div>
   )
 }
